@@ -27,6 +27,13 @@ class Triangle:
 	def perimeter(self):
 		return self.side1+self.side2+self.side3
 
+class Line:
+	'Understands a straight or curved continuous extent of length without breadth'
+	def __init__(self, length):
+		self.length = length
+	def getLength(self):
+		return self.length
+
 class circleTests(unittest.TestCase):
 	def testShouldReturnAreaOfCircleWithRadius2(self):
 		actual = Circle(2).area()
@@ -48,6 +55,12 @@ class triangleTests(unittest.TestCase):
 	def testShouldReturnPerimeterOfTriangleWithSidesLength5And6And7(self):
 		actual = Triangle(5,6,7).perimeter()
 		expected = 18
+		self.assertEqual(actual, expected)
+
+class lineTests(unittest.TestCase):
+	def testShouldReturnLengthOfLineWithLength8(self):
+		actual = Line(8).getLength()
+		expected = 8
 		self.assertEqual(actual, expected)
 
 
