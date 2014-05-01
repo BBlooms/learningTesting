@@ -40,7 +40,7 @@ class Rhombus:
 		self.diagonal1 = diagonal1
 		self.diagonal2 = diagonal2
 	def area(self):
-		return diagonal1*diagonal2/2
+		return self.diagonal1*self.diagonal2/2
 
 class rhombusTests(unittest.TestCase):
 	def testShouldReturnAreaOfRhombusWithDiagonal7andDiagonal9(self):
