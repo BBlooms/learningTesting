@@ -41,6 +41,8 @@ class Rhombus:
 		self.diagonal2 = diagonal2
 	def area(self):
 		return self.diagonal1*self.diagonal2/float(2)
+	def side(self):
+		return math.sqrt(self.diagonal1*self.diagonal1+self.diagonal2*self.diagonal2)/float(2)
 	def perimeter(self):
 		return 2*math.sqrt(self.diagonal1*self.diagonal1+self.diagonal2*self.diagonal2)
 
@@ -52,6 +54,10 @@ class rhombusTests(unittest.TestCase):
 	def testShouldReturnPerimeterOfRhombusWithDiagonal7AndDiagonal9(self):
 		actual = round(Rhombus(7, 9).perimeter(), 1)
 		expected = 22.8
+		self.assertEqual(actual, expected)
+	def testShouldReturnSideOfRhombusWithDiagonal7AndDiagonal9(self):
+		actual = round(Rhombus(7,9).side(), 1)
+		expected = 5.7
 		self.assertEqual(actual, expected)
 
 
