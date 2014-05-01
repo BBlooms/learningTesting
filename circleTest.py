@@ -50,7 +50,7 @@ class rhombusTests(unittest.TestCase):
 		expected = 31.5
 		self.assertEqual(actual, expected)
 	def testShouldReturnPerimeterOfRhombusWithDiagonal7AndDiagonal9(self):
-		actual = Rhombus(7, 9).perimeter()
+		actual = round(Rhombus(7, 9).perimeter(), 1)
 		expected = 22.8
 		self.assertEqual(actual, expected)
 
