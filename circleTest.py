@@ -18,14 +18,22 @@ class Ellipse:
 	def area(self):
 		return 3.14*self.major/2*self.minor/2
 
-class Triangle:
-	'Understands a plane figure with three straight sides and three angles'
+class TriangleSides:
+	'Understands a plane figure with three straight sides and three angles via its sides'
 	def __init__(self, side1, side2, side3):
 		self.side1 = side1
 		self.side2 = side2
 		self.side3 = side3
 	def perimeter(self):
 		return self.side1+self.side2+self.side3
+
+class TriangleBaseHeight:
+	'Understands a plane figure with three straight sides and three angles via its base and height'
+	def __init__(self, base, height):
+		self.height = height
+		self.base = base
+	def area(self):
+		return self.base*self.height/float(2)
 
 class Line:
 	'Understands a straight or curved continuous extent of length without breadth'
@@ -45,6 +53,12 @@ class Rhombus:
 		return math.sqrt(self.diagonal1*self.diagonal1+self.diagonal2*self.diagonal2)/float(2)
 	def perimeter(self):
 		return 2*math.sqrt(self.diagonal1*self.diagonal1+self.diagonal2*self.diagonal2)
+
+class triangleBaseHeightTests(unittest.TestCase):
+	def testShouldReturnAreaOfTriangleWithBase8Height9(self):
+		actual = TriangleBaseHeight(8,9).area()
+		expected = 36
+		self.assertEqual(actual, expected)
 
 class rhombusTests(unittest.TestCase):
 	def testShouldReturnAreaOfRhombusWithDiagonal7andDiagonal9(self):
@@ -79,9 +93,9 @@ class ellipseTests(unittest.TestCase):
 		expected = 27.475
 		self.assertEqual(actual, expected)
 
-class triangleTests(unittest.TestCase):
+class triangleSidesTests(unittest.TestCase):
 	def testShouldReturnPerimeterOfTriangleWithSidesLength5And6And7(self):
-		actual = Triangle(5,6,7).perimeter()
+		actual = TriangleSides(5,6,7).perimeter()
 		expected = 18
 		self.assertEqual(actual, expected)
 
