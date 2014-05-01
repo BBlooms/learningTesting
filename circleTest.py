@@ -1,4 +1,4 @@
-import unittest 
+import unittest, math 
 #import circle
 
 class Circle:
@@ -34,7 +34,23 @@ class Line:
 	def getLength(self):
 		return self.length
 
+class Rhombus:
+	'Understands a simple quadrilateral whose four sides all have the same length'
+	def __init__(self, diagonal1, diagonal2):
+		self.diagonal1 = diagonal1
+		self.diagonal2 = diagonal2
+	def area(self):
+		return diagonal1*diagonal2/2
+
+class rhombusTests(unittest.TestCase):
+	def testShouldReturnAreaOfRhombusWithDiagonal7andDiagonal9(self):
+		actual = Rhombus(7, 9).area()
+		expected = 31.5
+		self.assertEqual(actual, expected)
+
+
 class circleTests(unittest.TestCase):
+
 	def testShouldReturnAreaOfCircleWithRadius2(self):
 		actual = Circle(2).area()
 		expected = 12.56
